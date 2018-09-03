@@ -20,10 +20,7 @@ namespace WpfApp5
 {
     public static class SmtpServers
     {
-        //public static string Yandex()
-        //{
-        //    return "smtp.yandex.ru";
-        //}
+     
         public static string Yandex
         {
             get { return "smtp.yandex.ru"; }
@@ -59,10 +56,11 @@ namespace WpfApp5
                 // Используем using, чтобы гарантированно удалить объект MailMessage после использования
                 using (MailMessage mm = new MailMessage("joess63t@yandex.ru", mail))
                 {
-                    mm.Subject = "First mail send on Csharp WPF program";
+                   // mm.Subject = "First mail send on Csharp WPF program";
                    // mm.Body = "This is mail sender on WPF program";
                     mm.IsBodyHtml = false;
                     mm.Body = TextMsgBox.Text;
+                    mm.Subject = TextSubj.Text;
 
                     using (SmtpClient sc = new SmtpClient (SmtpServers.Yandex, 25))
                     {
