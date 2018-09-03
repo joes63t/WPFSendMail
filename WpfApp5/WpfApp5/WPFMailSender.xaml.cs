@@ -52,7 +52,7 @@ namespace WpfApp5
         {
 
             //список ящиков на которые будем отправлять письма
-            List<string> listStrMails = new List<string> { "ufrc@yandex.ru" };
+            List<string> listStrMails = new List<string> { "c5harptest@yandex.ru" };
             string strPassword = PasswordBox.Password;
             foreach (string mail in listStrMails)
             {
@@ -60,9 +60,9 @@ namespace WpfApp5
                 using (MailMessage mm = new MailMessage("joess63t@yandex.ru", mail))
                 {
                     mm.Subject = "First mail send on Csharp WPF program";
-                    mm.Body = "This is mail sender on WPF program";
+                   // mm.Body = "This is mail sender on WPF program";
                     mm.IsBodyHtml = false;
-                   // mm.Body = TextBox_TextChanged;
+                    mm.Body = TextMsgBox.Text;
 
                     using (SmtpClient sc = new SmtpClient (SmtpServers.Yandex, 25))
                     {
@@ -87,7 +87,9 @@ namespace WpfApp5
         public void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
                      
-            string TxtBox = Convert.ToString(TextMsgBox);
+          //  string TxtBox = Convert.ToString(TextMsgBox);
+
+        
         }
     }
 }
